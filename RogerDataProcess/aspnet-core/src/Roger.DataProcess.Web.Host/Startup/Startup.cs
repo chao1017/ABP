@@ -100,8 +100,8 @@ namespace Roger.DataProcess.Web.Host.Startup
 
         public void Configure(IApplicationBuilder app,  ILoggerFactory loggerFactory)
         {
-            app.UseAbp(options => { options.UseAbpRequestLocalization = false; }); // Initializes ABP framework.
-
+            //app.UseAbp(options => { options.UseAbpRequestLocalization = false; }); // Initializes ABP framework.
+            app.UseAbp();
             app.UseCors(_defaultCorsPolicyName); // Enable CORS!
 
             app.UseStaticFiles();
