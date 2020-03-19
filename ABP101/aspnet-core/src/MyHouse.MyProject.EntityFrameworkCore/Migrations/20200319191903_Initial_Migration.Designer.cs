@@ -9,7 +9,7 @@ using MyHouse.MyProject.EntityFrameworkCore;
 namespace MyHouse.MyProject.Migrations
 {
     [DbContext(typeof(MyProjectDbContext))]
-    [Migration("20200319165157_Initial_Migration")]
+    [Migration("20200319191903_Initial_Migration")]
     partial class Initial_Migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
