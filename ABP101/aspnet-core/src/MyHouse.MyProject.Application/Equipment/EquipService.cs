@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Abp.UI;
 using AutoMapper;
-using MyHouse.MyProject.e
+//using MyHouse.MyProject.e
 
 namespace MyHouse.MyProject.Equipment
 {
