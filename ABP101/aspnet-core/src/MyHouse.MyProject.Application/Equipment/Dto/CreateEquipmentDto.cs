@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyHouse.MyProject.Equipment.Dto
 {
-    public class CreateEquipment
+    public class CreateEquipmentDto
     {
         [Required]
         public long EquipId { get; set; }

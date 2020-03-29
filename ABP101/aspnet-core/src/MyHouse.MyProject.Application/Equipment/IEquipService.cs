@@ -8,6 +8,6 @@ namespace MyHouse.MyProject.Equipment
 {
     public interface IEquipService : IApplicationService
     {
-        void CreateEquipment(CreateEquipment input);
+        void CreateEquipment(CreateEquipmentDto input);
     }
 }
