@@ -22,6 +22,7 @@
     <ProjectReference Include="..\MyHouse.MyProject.EntityFrameworkCore\MyHouse.MyProject.EntityFrameworkCore.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="dotnet-framework-sonarscanner" Version="4.8.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
     <PackageReference Include="Abp.AspNetCore" Version="5.2.0" />

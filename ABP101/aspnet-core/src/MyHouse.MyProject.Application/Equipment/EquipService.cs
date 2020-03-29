@@ -7,7 +7,8 @@ using AutoMapper;
 
 namespace MyHouse.MyProject.Equipment
 {
-    class EquipService
+    public class EquipService
     {
+        private int a = 0;
     }
 }

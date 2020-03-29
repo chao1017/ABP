@@ -11,6 +11,9 @@
     <RootNamespace>MyHouse.MyProject</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="dotnet-framework-sonarscanner" Version="4.8.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\MyHouse.MyProject.Core\MyHouse.MyProject.Core.csproj" />
   </ItemGroup>
 </Project>
