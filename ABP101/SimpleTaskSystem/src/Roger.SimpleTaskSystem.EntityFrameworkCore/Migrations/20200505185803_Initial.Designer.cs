@@ -10,7 +10,7 @@ using Roger.SimpleTaskSystem.EntityFrameworkCore;
 namespace Roger.SimpleTaskSystem.Migrations
 {
     [DbContext(typeof(SimpleTaskSystemDbContext))]
-    [Migration("20200419082026_Initial")]
+    [Migration("20200505185803_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
