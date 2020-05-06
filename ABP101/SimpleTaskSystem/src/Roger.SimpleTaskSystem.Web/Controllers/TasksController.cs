@@ -21,7 +21,10 @@ namespace Roger.SimpleTaskSystem.Web.Controllers
         public async Task<ActionResult> Index(GetAllTasksInput input)
         {
             var output = await _taskAppService.GetAll(input);
-            var model = new IndexViewModel(output.Items);
+            var model = new IndexViewModel(output.Items) {
+                SelectedTaskState = input.State
+            };
+
             return View(model);
         }
 

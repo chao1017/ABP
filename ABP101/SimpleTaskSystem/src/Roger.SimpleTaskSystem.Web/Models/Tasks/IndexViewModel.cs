@@ -5,12 +5,15 @@ using System.Threading.Tasks;
 using Roger.SimpleTaskSystem.Tasks;
 using Roger.SimpleTaskSystem.Tasks.Dtos;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Abp.Localization;
 
 namespace Roger.SimpleTaskSystem.Web.Models.Tasks
 {
     public class IndexViewModel
     {
         public IReadOnlyList<TaskListDto> Tasks { get; }
+
+        public TaskState? SelectedTaskState { get; set; }
 
         public IndexViewModel(IReadOnlyList<TaskListDto> tasks)
         {
@@ -29,5 +32,34 @@ namespace Roger.SimpleTaskSystem.Web.Models.Tasks
                     return "label-default";
             }
         }
+        
+
+        public List<SelectListItem> GetTasksStateSelectListItems(ILocalizationManager localizationManager)
+        {
+            var list = new List<SelectListItem>
+        {
+            new SelectListItem
+            {
+                Text = localizationManager.GetString(SimpleTaskSystemConsts.LocalizationSourceName, "AllTasks"),
+                Value = "",
+                Selected = SelectedTaskState == null
+            }
+        };
+
+            list.AddRange(Enum.GetValues(typeof(TaskState))
+                    .Cast<TaskState>()
+                    .Select(state =>
+                        new SelectListItem
+                        {
+                            Text = localizationManager.GetString(SimpleTaskSystemConsts.LocalizationSourceName, $"TaskState_{state}"),
+                            Value = state.ToString(),
+                            Selected = state == SelectedTaskState
+                        })
+            );
+
+            return list;
+        }
+
+
     }
 }
