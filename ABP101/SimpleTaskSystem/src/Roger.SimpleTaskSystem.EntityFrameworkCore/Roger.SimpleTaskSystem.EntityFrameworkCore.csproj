@@ -15,16 +15,6 @@
     <RootNamespace>Roger.SimpleTaskSystem</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Migrations\**" />
-    <EmbeddedResource Remove="Migrations\**" />
-    <None Remove="Migrations\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Migrations\20200419082026_Initial.cs" />
-    <Compile Include="Migrations\20200419082026_Initial.designer.cs" />
-    <Compile Include="Migrations\SimpleTaskSystemDbContextModelSnapshot.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Roger.SimpleTaskSystem.Core\Roger.SimpleTaskSystem.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
