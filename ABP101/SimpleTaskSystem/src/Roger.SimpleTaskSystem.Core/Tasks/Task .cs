@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Abp.Timing;
+using Roger.SimpleTaskSystem.People;
 
 namespace Roger.SimpleTaskSystem.Tasks
 {
@@ -26,17 +27,22 @@ namespace Roger.SimpleTaskSystem.Tasks
 
         public TaskState State { get; set; }
 
+        [ForeignKey(nameof(AssignedPersonId))]
+        public Person AssignedPerson { get; set; }
+        public Guid? AssignedPersonId { get; set; }
+
         public Task()
         {
             CreationTime = Clock.Now;
             State = TaskState.Open;
         }
 
-        public Task(string title, string description = null)
+        public Task(string title, string description = null, Guid? assignedPersonId = null)
             : this()
         {
             Title = title;
             Description = description;
+            AssignedPersonId = assignedPersonId;
         }
     }
 
@@ -44,5 +50,6 @@ namespace Roger.SimpleTaskSystem.Tasks
     {
         Open = 0,
         Completed = 1
+            
     }
 }
