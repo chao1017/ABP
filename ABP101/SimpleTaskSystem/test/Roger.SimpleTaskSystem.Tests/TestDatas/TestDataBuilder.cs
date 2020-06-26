@@ -1,4 +1,5 @@
 using Roger.SimpleTaskSystem.EntityFrameworkCore;
+using Roger.SimpleTaskSystem.People;
 using Roger.SimpleTaskSystem.Tasks;
 
 namespace Roger.SimpleTaskSystem.Tests.TestDatas
@@ -14,6 +15,10 @@ namespace Roger.SimpleTaskSystem.Tests.TestDatas
 
         public void Build()
         {
+            var neo = new Person("Neo");
+            _context.People.Add(neo);
+            _context.SaveChanges();
+
             //create test data here...
             _context.Tasks.AddRange(
             new Task("Follow the white rabbit", "Follow the white rabbit in order to know the reality."),

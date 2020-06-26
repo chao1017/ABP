@@ -24,6 +24,7 @@ namespace Roger.SimpleTaskSystem.Tests.Tasks
 
             //Assert
             output.Items.Count.ShouldBe(2);
+            output.Items.Count(t => t.AssignedPersonName != null).ShouldBe(1);
         }
 
         [Fact]
