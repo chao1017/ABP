@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Roger.SimpleTaskSystem.Common;
 using Roger.SimpleTaskSystem.Tasks;
 using Roger.SimpleTaskSystem.Tasks.Dtos;
 using Roger.SimpleTaskSystem.Web.Models.Tasks;
@@ -12,6 +13,7 @@ namespace Roger.SimpleTaskSystem.Web.Controllers
     public class TasksController : SimpleTaskSystemControllerBase
     {
         private readonly ITaskAppService _taskAppService;
+        private readonly ILookupAppService _lookupAppService;
 
         public TasksController(ITaskAppService taskAppService)
         {
