@@ -34,6 +34,15 @@ namespace Roger.Api1.Web.Startup
             {
                 options.SwaggerDoc("v1", new OpenApiInfo { Title = "AbpZeroTemplate API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
+
+                // Define the BearerAuth scheme that's in use
+                options.AddSecurityDefinition("bearerAuth", new OpenApiSecurityScheme()
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
             });
 
             //Configure Abp and Dependency Injection
