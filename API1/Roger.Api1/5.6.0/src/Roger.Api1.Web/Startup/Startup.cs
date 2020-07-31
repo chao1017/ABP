@@ -72,6 +72,12 @@ namespace Roger.Api1.Web.Startup
             app.UseStaticFiles();
             app.UseRouting();
 
+            app.UseAuthentication();
+
+            //app.UseJwtTokenMiddleware();
+
+            app.UseAbpRequestLocalization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
