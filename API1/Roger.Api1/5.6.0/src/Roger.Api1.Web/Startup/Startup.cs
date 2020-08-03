@@ -12,11 +12,25 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
+using Roger.Api1.Identity;
+using Microsoft.Extensions.Configuration;
+using Roger.Api1.Configuration;
 
 namespace Roger.Api1.Web.Startup
 {
     public class Startup
     {
+        private const string _defaultCorsPolicyName = "localhost";
+
+        private const string _apiVersion = "v1";
+
+        private readonly IConfigurationRoot _appConfiguration;
+
+        public Startup(IWebHostEnvironment env)
+        {
+            _appConfiguration = AppConfigurations.Get(env.ContentRootPath, env.EnvironmentName);
+        }
+
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             //Configure DbContext
@@ -29,6 +43,9 @@ namespace Roger.Api1.Web.Startup
             {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             }).AddNewtonsoftJson();
+
+            IdentityRegistrar.Register(services);
+            AuthConfigurer.Configure(services, _appConfiguration);
 
             services.AddSwaggerGen(options =>
             {
