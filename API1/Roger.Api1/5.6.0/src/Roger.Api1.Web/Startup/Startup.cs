@@ -20,9 +20,9 @@ namespace Roger.Api1.Web.Startup
 {
     public class Startup
     {
-        private const string _defaultCorsPolicyName = "localhost";
+        //private const string _defaultCorsPolicyName = "localhost";
 
-        private const string _apiVersion = "v1";
+        //private const string _apiVersion = "v1";
 
         private readonly IConfigurationRoot _appConfiguration;
 
@@ -105,8 +105,8 @@ namespace Roger.Api1.Web.Startup
             app.UseSwaggerUI(options =>
             {
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "AbpZeroTemplate API V1");
-                //options.IndexStream = () => Assembly.GetExecutingAssembly()
-                //    .GetManifestResourceStream("Roger.Api1.Web.wwwroot.swagger.ui.index.html");
+                options.IndexStream = () => Assembly.GetExecutingAssembly()
+                    .GetManifestResourceStream("Roger.Api1.Web.wwwroot.swagger.ui.index.html");
             }); //URL: /swagger 
         }
     }

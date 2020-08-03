@@ -17,4 +17,7 @@
     <PackageReference Include="Abp.EntityFrameworkCore" Version="5.10.1" />
     <PackageReference Include="Abp.AutoMapper" Version="5.10.1" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TestFunc\Dto\" />
+  </ItemGroup>
 </Project>

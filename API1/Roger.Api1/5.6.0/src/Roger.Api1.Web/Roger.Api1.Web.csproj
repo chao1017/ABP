@@ -50,4 +50,9 @@
     <Folder Include="Middleware\" />
     <Folder Include="wwwroot\swagger\ui\" />
   </ItemGroup>
+  <ItemGroup>
+     <EmbeddedResource Include="wwwroot\swagger\ui\index.html">
+       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+     </EmbeddedResource>
+   </ItemGroup>
 </Project>

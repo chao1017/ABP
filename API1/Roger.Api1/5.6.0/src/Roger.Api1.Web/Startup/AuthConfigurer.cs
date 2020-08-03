@@ -14,6 +14,7 @@ namespace Roger.Api1.Web.Startup
     {
         public static void Configure(IServiceCollection services, IConfiguration configuration)
         {
+            string a = configuration["Authentication:JwtBearer:IsEnabled"];
             if (bool.Parse(configuration["Authentication:JwtBearer:IsEnabled"]))
             {
                 services.AddAuthentication(options => {

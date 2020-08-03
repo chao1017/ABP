@@ -9,6 +9,11 @@ namespace Roger.Api1
         typeof(AbpAutoMapperModule))]
     public class Api1ApplicationModule : AbpModule
     {
+        //public override void PreInitialize()
+        //{
+        //    Configuration.Authorization.Providers.Add<ApithorizationProvider>();
+        //}
+
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(typeof(Api1ApplicationModule).GetAssembly());
