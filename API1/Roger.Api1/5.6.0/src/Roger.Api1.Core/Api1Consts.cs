@@ -4,6 +4,6 @@
     {
         public const string LocalizationSourceName = "Api1";
 
-        public const string ConnectionStringName = "Default";
+        public const string ConnectionStringName = "6551DB";
     }
 }
