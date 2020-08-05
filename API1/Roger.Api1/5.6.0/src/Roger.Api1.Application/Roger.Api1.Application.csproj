@@ -11,13 +11,16 @@
     <RootNamespace>Roger.Api1</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="TestFunc\**" />
+    <EmbeddedResource Remove="TestFunc\**" />
+    <None Remove="TestFunc\**" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Roger.Api1.Core\Roger.Api1.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Abp.EntityFrameworkCore" Version="5.10.1" />
     <PackageReference Include="Abp.AutoMapper" Version="5.10.1" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TestFunc\Dto\" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
   </ItemGroup>
 </Project>
