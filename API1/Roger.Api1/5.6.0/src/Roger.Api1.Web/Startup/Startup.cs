@@ -20,9 +20,9 @@ namespace Roger.Api1.Web.Startup
 {
     public class Startup
     {
-        //private const string _defaultCorsPolicyName = "localhost";
+        private const string _defaultCorsPolicyName = "localhost";
 
-        //private const string _apiVersion = "v1";
+        private const string _apiVersion = "v1";
 
         private readonly IConfigurationRoot _appConfiguration;
 
@@ -44,7 +44,6 @@ namespace Roger.Api1.Web.Startup
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             }).AddNewtonsoftJson();
 
-            IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);
 
             services.AddSwaggerGen(options =>
@@ -100,11 +99,13 @@ namespace Roger.Api1.Web.Startup
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
 
-            app.UseSwagger();
+            //Enable middleware to serve generated Swagger as a JSON endpoint
+            app.UseSwagger(c => { c.RouteTemplate = "swagger/{documentName}/swagger.json"; });
+
             //Enable middleware to serve swagger - ui assets(HTML, JS, CSS etc.)
             app.UseSwaggerUI(options =>
             {
-                options.SwaggerEndpoint("/swagger/v1/swagger.json", "AbpZeroTemplate API V1");
+                options.SwaggerEndpoint($"/swagger/{_apiVersion}/swagger.json", $"AbpZeroTemplate API {_apiVersion}");
                 options.IndexStream = () => Assembly.GetExecutingAssembly()
                     .GetManifestResourceStream("Roger.Api1.Web.wwwroot.swagger.ui.index.html");
             }); //URL: /swagger 

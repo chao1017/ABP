@@ -9,8 +9,7 @@ using Roger.Api1.Students.Dto;
 
 namespace Roger.Api1.Students
 {
-    [Produces("application/json")]
-    public class StudentAppService
+    public class StudentAppService : IStudentAppService
     {
         private readonly StudentsManager _studentsManager;
         private readonly IObjectMapper _objectMapper;
@@ -20,10 +19,14 @@ namespace Roger.Api1.Students
             _objectMapper = objectMapper;
         }
 
-        public async Task<Student> CreateAsync(CreateStudentDto input)
+        /// <summary>
+        /// Create Student
+        /// </summary>
+        /// <param name="input"></param>
+        public void CreateStudent(CreateStudentDto input)
         {
             var student = _objectMapper.Map<Student>(input);
-            return await _studentsManager.CreateAsync(student);
+            _studentsManager.CreateAsync(student);
         }
     }
 }

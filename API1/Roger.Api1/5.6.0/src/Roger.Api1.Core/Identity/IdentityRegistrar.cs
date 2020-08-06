@@ -6,11 +6,11 @@ namespace Roger.Api1.Identity
 {
     public static class IdentityRegistrar
     {
-        public static IdentityBuilder Register(IServiceCollection services)
-        {
-            services.AddLogging();
-
-            return services.AddIdentityCore<User>().AddDefaultTokenProviders();
-        }
+        //public static IdentityBuilder Register(IServiceCollection services)
+        //{
+        //    services.AddLogging();
+        //
+        //    return services.AddIdentityCore<User>().AddDefaultTokenProviders();
+        //}
     }
 }
