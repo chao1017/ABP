@@ -20,7 +20,7 @@ namespace Roger.Api1.Students
         }
 
         /// <summary>
-        /// Create Student
+        /// 建立學生資料
         /// </summary>
         /// <param name="input"></param>
         public void CreateStudent(CreateStudentDto input)
