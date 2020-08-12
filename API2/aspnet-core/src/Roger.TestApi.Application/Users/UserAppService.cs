@@ -52,6 +52,11 @@ namespace Roger.TestApi.Users
             _logInManager = logInManager;
         }
 
+        /// <summary>
+        /// 建立User
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public override async Task<UserDto> CreateAsync(CreateUserDto input)
         {
             CheckCreatePermission();

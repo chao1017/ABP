@@ -63,7 +63,7 @@ namespace Roger.TestApi.MultiTenancy
             await CurrentUnitOfWork.SaveChangesAsync(); // To get new tenant's id.
 
             // Create tenant database
-            _abpZeroDbMigrator.CreateOrMigrateForTenant(tenant);
+            //_abpZeroDbMigrator.CreateOrMigrateForTenant(tenant);
 
             // We are working entities of new tenant, so changing tenant filter
             using (CurrentUnitOfWork.SetTenantId(tenant.Id))
@@ -89,6 +89,18 @@ namespace Roger.TestApi.MultiTenancy
             }
 
             return MapToEntityDto(tenant);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task<Tenant> GetTenantByIdAsync(TenantGetDto input)
+        {
+            CheckGetPermission();
+
+            return await _tenantManager.GetByIdAsync(input.Id);            
         }
 
         protected override IQueryable<Tenant> CreateFilteredQuery(PagedTenantResultRequestDto input)
