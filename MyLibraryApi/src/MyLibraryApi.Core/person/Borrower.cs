@@ -24,7 +24,7 @@ namespace MyLibraryApi.person
         public string ID { get; set; }
 
         /// <summary>
-        /// 借閱人姓
+        /// 借閱人姓123
         /// </summary>
         public string LastName { get; set; }
 
