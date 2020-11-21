@@ -15,11 +15,6 @@
     <RootNamespace>MyLibraryApi</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="Migrations\**" />
-    <EmbeddedResource Remove="Migrations\**" />
-    <None Remove="Migrations\**" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\MyLibraryApi.Core\MyLibraryApi.Core.csproj" />
   </ItemGroup>
   <ItemGroup>

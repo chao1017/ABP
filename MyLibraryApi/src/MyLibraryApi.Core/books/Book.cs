@@ -1,22 +1,24 @@
 ﻿using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Abp.Timing;
-using MyLibraryApi.person;
+//using MyLibraryApi.person;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace MyLibraryApi.books
 {
+    [Table("BooksInfo")]
 
     public class Book : Entity, IHasCreationTime
     {
-        /// <summary>
-        /// 書名
-        /// </summary>
-        public string Title { get; set; }
+        private const int DEFAULT_PRICE = 100;
+        private int _price = DEFAULT_PRICE;
+
+        public string BookTitle { get; set; }
 
         /// <summary>
         /// 借閱日
@@ -37,11 +39,14 @@ namespace MyLibraryApi.books
         /// <summary>
         /// 借閱人
         /// </summary>
-        [Required]
-        [ForeignKey(nameof(LibraryCardID))]
-        public Borrower BookBorrower { get; set; }
-        
-        
+        //[Required]
+        //[ForeignKey(nameof(LibraryCardID))]
+        //public Borrower BookBorrower { get; set; }
+
+        [DefaultValue(DEFAULT_PRICE)]
+        public int? Price { get { return _price; } set { _price = (int)value; } }
+                
+        public string? Author { get; set; }
         public DateTime CreationTime { get; set; }
 
         public Book()
@@ -51,7 +56,7 @@ namespace MyLibraryApi.books
 
         public Book(string title)
         {
-            Title = title;
+            BookTitle = title;
         }
     }
 }
