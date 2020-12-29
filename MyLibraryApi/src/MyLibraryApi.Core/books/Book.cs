@@ -36,6 +36,8 @@ namespace MyLibraryApi.books
         [Required]
         public string LibraryCardID { get; set; }
 
+        public BookState State { get; set; }
+
         /// <summary>
         /// 借閱人
         /// </summary>
