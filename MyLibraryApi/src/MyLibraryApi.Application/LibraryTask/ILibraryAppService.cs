@@ -12,5 +12,7 @@ namespace MyLibraryApi.LibraryTask
     public interface ILibraryAppService : IApplicationService
     {
         Task<ListResultDto<BooksListDto>> GetAll(GetAllBooksInput input);
+
+        Task Create(CreateBookInput input);
     }
 }
