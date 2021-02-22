@@ -36,6 +36,10 @@ namespace MyLibraryApi.LibraryTask
             );
         }
 
-        
+        public async Task Create(CreateBookInput input)
+        {
+            var book = ObjectMapper.Map<Book>(input);
+            await _bookRepository.InsertAsync(book);
+        }
     }
 }
