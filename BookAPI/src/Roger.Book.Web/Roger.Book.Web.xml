@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Roger.Book.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Roger.Book.Web.Startup.BookNavigationProvider">
+            <summary>
+            This class defines menus for the application.
+            </summary>
+        </member>
+    </members>
+</doc>
