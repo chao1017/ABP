@@ -19,6 +19,10 @@ namespace Roger.Book.Books
             _bookInfoRepository = bookInfoRepository;
         }
 
+        /// <summary>
+        /// 取得所有書籍資料
+        /// </summary>
+        /// <returns></returns>
         public async Task<ListResultDto<BookInfo>> GetAll()
         {
             var books = await _bookInfoRepository
